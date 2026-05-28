@@ -81,7 +81,8 @@ def load_resources():
     client_id     = os.getenv("SPOTIPY_CLIENT_ID", "")
     client_secret = os.getenv("SPOTIPY_CLIENT_SECRET", "")
     sp = None
-    if client_id and client_secret:
+    placeholder = {"your_client_id_here", "your_client_secret_here", ""}
+    if client_id not in placeholder and client_secret not in placeholder:
         try:
             sp = spotipy.Spotify(
                 auth_manager=SpotifyClientCredentials(
@@ -100,7 +101,7 @@ def main():
     st.title("🎵 image2playlist")
     st.markdown(
         "Upload a photo and we'll detect its **vibe** using CLIP, "
-        "then generate a matching playlist from 60K+ Spotify tracks."
+        "then generate a matching playlist from 19K+ Spotify tracks."
     )
     st.divider()
 
